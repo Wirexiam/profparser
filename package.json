@@ -2,7 +2,6 @@
   "name": "profgen",
   "version": "1.0.0",
   "main": "parser.js",
-  "type": "module",
   "scripts": {
     "start": "node parser.js"
   },

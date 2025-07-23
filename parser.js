@@ -12,11 +12,19 @@ app.get("/parse", async (req, res) => {
 
   try {
     const { data: html } = await axios.get(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0",
-      },
-      timeout: 10000
-    });
+  headers: {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-User": "?1"
+  },
+  timeout: 10000
+});
+
 
     const $ = cheerio.load(html);
     const article = $('article, .article, .content, main').first();

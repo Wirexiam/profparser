@@ -27,7 +27,7 @@ app.get("/parse", async (req, res) => {
 
 
     const $ = cheerio.load(html);
-    const article = $('article, .article, .content, main').first();
+    const article = $('.entry-content, article, .article, .content, main').first();
     if (!article.length) return res.status(404).send("No article found");
 
     const text = article
